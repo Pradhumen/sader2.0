@@ -1,0 +1,32 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    margin: 0px;
+    background-color: #fff;   
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+    color: black;
+    position: fixed;
+    right: 69px;
+    top: 478px;
+    
+   
+}
+
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
+    color: black;
+    position: fixed;
+    top: 478px;
+}
+
+
+
+
+
+
+
+
+
+  
+  
