@@ -6,12 +6,10 @@ import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
 import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { DM_Serif_Text } from "next/font/google";
-
 import { Noto_Sans } from "next/font/google";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
 
 import {
   Box,
@@ -26,6 +24,11 @@ import {
 import { Inter } from "next/font/google";
 import Step1 from "@/app/components/Step1";
 import Step2 from "@/app/components/Step2";
+import Step3 from "@/app/components/Step3";
+import Step4 from "@/app/components/Step4";
+import Step5 from "@/app/components/Step5";
+import Modal from "@/app/components/Modal";
+import Step6 from "@/app/components/Step6";
 
 const dmserif = DM_Serif_Text({ weight: "400", subsets: ["latin"] });
 
@@ -50,7 +53,7 @@ const Home = () => {
   }, []);
 
   const nextStep = () => {
-     if(step < 2) setStep(step + 1);
+     if(step < 6) setStep(step + 1);
   }
 
   const previousStep = () => {
@@ -62,7 +65,17 @@ const Home = () => {
       case 0:
         return <Step1/>
       case 1:
+        return <Modal/>
+      case 2:
         return <Step2/>
+      case 3:
+          return <Step3/>
+      case 4:
+          return <Step6/>
+      case 5:
+            return <Step4/>
+      case 6:
+          return <Step5/>
       default:
       return <Typography variant="h5">Step 3</Typography>;
     }
@@ -82,14 +95,29 @@ const Home = () => {
           md={7}
           sx={{
             height: isSmallScreen ? "400px" : "100vh",
-            backgroundImage: `url('https://images.unsplash.com/photo-1598519575657-5f8d16c3a20f?q=80&w=1892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
+            // backgroundImage: `url('https://images.unsplash.com/photo-1598519575657-5f8d16c3a20f?q=80&w=1892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`,
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             padding: 0,
             margin: 0,
           }}
-        />
+        >
+           <Carousel>
+              <div>
+                <img src="https://images.unsplash.com/photo-1542799706-c8bc889c7ffd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+              </div>
+
+              <div>
+                <img src="https://plus.unsplash.com/premium_photo-1679060384160-0ac5ff75a9bc?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+              </div>
+
+              <div>
+                <img src="https://images.unsplash.com/photo-1444201983204-c43cbd584d93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+              </div>
+            </Carousel>
+
+        </Grid>
 
         {/* Input Container */}
         <Grid
@@ -229,7 +257,7 @@ const Home = () => {
                     alignItems: "end",
                   }} // Right-align CancelIcon
                 >
-                  {step < 2 && (
+                  {step < 6 && (
 
                   <Button
                     sx={{

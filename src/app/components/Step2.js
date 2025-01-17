@@ -4,8 +4,7 @@ import Grid from "@mui/material/Grid";
 import { DM_Serif_Text } from "next/font/google";
 
 import { Noto_Sans } from "next/font/google";
-import "swiper/css";
-import "swiper/css/navigation";
+
 
 import {
   Box,
@@ -88,7 +87,7 @@ const Step2 = () => {
                 },
              }}
             label="Enter Width"
-            size="small"
+            size="large"
           />
         </Box>
         <Box>
@@ -114,7 +113,7 @@ const Step2 = () => {
                 
              }}
             label="Enter Height"
-            size="small"
+            size="large"
           />
         </Box>
         <Box>

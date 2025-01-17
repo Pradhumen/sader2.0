@@ -5,41 +5,31 @@ import { DM_Serif_Text } from "next/font/google";
 
 import { Noto_Sans } from "next/font/google";
 
-
 import {
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  TextField,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-
+    Box,
+    Button,
+    Card,
+    CardActions,
+    CardContent,
+    TextField,
+    Typography,
+    useMediaQuery,
+  } from "@mui/material";
+  
 
 const dmserif = DM_Serif_Text({ weight: "400", subsets: ["latin"] });
 
 const notoSense = Noto_Sans({ weight: "400", subsets: ["latin"] });
 
-const Step1 = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const selectCategoryRef = useRef();
+const Step3 = () => {
+     const [selectedCategory, setSelectedCategory] = useState(null);
+     const selectCategoryRef = useRef();
 
-  const MediumScreen = useMediaQuery("(max-width: 768px)");
-  const smallScreen = useMediaQuery("(max-width: 461px)");
-  const isSmallScreen = useMediaQuery("(max-width: 768px)");
-
-  const handleChange = (index) => {
-    console.log('sss',index);
-    setSelectedCategory(index);
-  };
-
-  useEffect(() => {
-    console.log("test", selectCategoryRef.current);
-  }, []);
-
-  console.log(MediumScreen, "MediumScreen");
+     const handleChange = (index) => {
+        console.log('sss',index);
+        setSelectedCategory(index);
+      };
+    
 
   return (
     <>
@@ -53,8 +43,6 @@ const Step1 = () => {
           overflow: "auto",
         }}
       >
-     
-
         <Box>
           <Typography
             sx={{ fontFamily: dmserif.style.fontFamily }}
@@ -62,19 +50,42 @@ const Step1 = () => {
             variant="h4"
             component="div"
           >
-            Select Category
+            Search Item
           </Typography>
-
-          <Typography
-            sx={{ fontFamily: dmserif.style.fontFamily, color: "gray" }}
-            gutterBottom
-            variant="small"
-            component="div"
-          >
-            Follow steps for move forword and get your product.
-          </Typography>
-
         </Box>
+
+        <TextField
+          sx={{ marginTop: "10px" }}
+          id="item-code"
+          label="item-code"
+          variant="standard"
+        />
+        <Button
+          sx={{
+            padding: "8px",
+            width: "85px",
+            marginTop: "18px",
+            borderRadius: "1px",
+            minWidth: "50px",
+            background: "#ef233c",
+            color: "white",
+            fontFamily: notoSense.style.fontFamily,
+            fontWeight: 800,
+            border: "none",
+          }}
+          variant="outlined"
+        >
+          Search
+        </Button>
+
+        <Typography
+          sx={{ fontFamily: dmserif.style.fontFamily,marginTop:"20px" }}
+          gutterBottom
+          variant="h6"
+          component="div"
+        >
+          Material Selection
+        </Typography>
 
         <Grid
           container
@@ -84,7 +95,7 @@ const Step1 = () => {
             padding: "5px",
             width: "100%",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "start",
           }}
         >
           <Grid item key="1">
@@ -147,7 +158,7 @@ const Step1 = () => {
                     variant="h6"
                     component="div"
                   >
-                    Curtains & Drapes
+                    Color 1
                   </Typography>
                 </CardActions>
               </CardContent>
@@ -214,7 +225,7 @@ const Step1 = () => {
                     variant="h6"
                     component="div"
                   >
-                    Blinds Shades
+                    Color 2
                   </Typography>
                 </CardActions>
               </CardContent>
@@ -280,7 +291,7 @@ const Step1 = () => {
                     variant="h6"
                     component="div"
                   >
-                    Wallpaper
+                    Color 3
                   </Typography>
                 </CardActions>
               </CardContent>
@@ -347,16 +358,17 @@ const Step1 = () => {
                     variant="h6"
                     component="div"
                   >
-                    Blinds Shades
+                    Color 4
                   </Typography>
                 </CardActions>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
+
       </Box>
     </>
   );
 };
 
-export default Step1;
+export default Step3;
