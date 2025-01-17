@@ -99,7 +99,7 @@ const Home = () => {
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
-            padding: 0,
+            padding: 1,
             margin: 0,
           }}
         >
