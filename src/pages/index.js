@@ -24,9 +24,9 @@ import {
 } from "@mui/material";
 import { Inter } from "next/font/google";
 
-const dmserif = DM_Serif_Text({ weight: "400" });
+const dmserif = DM_Serif_Text({ weight: "400",subsets: ['latin'] });
 
-const notoSense = Noto_Sans({ weight: "400" });
+const notoSense = Noto_Sans({ weight: "400",subsets: ['latin'] });
 
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
