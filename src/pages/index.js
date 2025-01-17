@@ -25,12 +25,14 @@ import {
 } from "@mui/material";
 import { Inter } from "next/font/google";
 import Step1 from "@/app/components/Step1";
+import Step2 from "@/app/components/Step2";
 
 const dmserif = DM_Serif_Text({ weight: "400", subsets: ["latin"] });
 
 const notoSense = Noto_Sans({ weight: "400", subsets: ["latin"] });
 
 const Home = () => {
+  const [step, setStep] = useState(0);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const selectCategoryRef = useRef();
 
@@ -47,7 +49,25 @@ const Home = () => {
     console.log("test", selectCategoryRef.current);
   }, []);
 
-  console.log(MediumScreen, "MediumScreen");
+  const nextStep = () => {
+     if(step < 2) setStep(step + 1);
+  }
+
+  const previousStep = () => {
+    if (step > 0) setStep(step - 1);
+  };
+
+  const renderStep = () => {
+    switch(step){
+      case 0:
+        return <Step1/>
+      case 1:
+        return <Step2/>
+      default:
+      return <Typography variant="h5">Step 3</Typography>;
+    }
+    
+  }
 
   return (
     <>
@@ -147,8 +167,8 @@ const Home = () => {
               </Grid>
             </Box>
 
-           {/* Step 1 */}
-           <Step1/>
+            {renderStep()}
+
 
 
             {/* Bottom Bar */}
@@ -179,6 +199,7 @@ const Home = () => {
                     alignItems: "start",
                   }} // Center-align content
                 >
+                   {step > 0 && (
                   <Button
                     sx={{
                       display: "flex",
@@ -189,12 +210,15 @@ const Home = () => {
                       justifyContent: "flex-start",
                       alignItems: "start",
                     }}
+                    onClick={previousStep}
                     size="large"
                     variant="contained"
                     startIcon={<ArrowCircleLeftIcon />}
                   >
+
                     Back
                   </Button>
+                  )}
                 </Grid>
                 <Grid
                   item
@@ -205,6 +229,8 @@ const Home = () => {
                     alignItems: "end",
                   }} // Right-align CancelIcon
                 >
+                  {step < 2 && (
+
                   <Button
                     sx={{
                       display: "flex",
@@ -215,12 +241,15 @@ const Home = () => {
                       justifyContent: "flex-end",
                       alignItems: "end",
                     }}
+                    onClick={nextStep}
                     size="large"
                     variant="contained"
                     endIcon={<ArrowCircleRightIcon />}
                   >
                     Continue
                   </Button>
+
+)}
                 </Grid>
               </Grid>
             </Box>
