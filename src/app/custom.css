@@ -3,7 +3,9 @@ body {
     margin: 0;
     background-color: #fff;
   }
-  
+.test{
+    background: #000;
+}
   /* Scrollbar styles */
   *::-webkit-scrollbar {
     width: 0.4em; 
