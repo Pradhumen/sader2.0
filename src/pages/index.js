@@ -33,6 +33,7 @@ const Home = () => {
   const selectCategoryRef = useRef();
 
   const MediumScreen = useMediaQuery("(max-width: 768px)");
+  const smallScreen = useMediaQuery("(max-width: 461px)");
 
   const handleChange = (index) => {
     setSelectedCategory(index);
@@ -104,7 +105,7 @@ const Home = () => {
                   fontFamily: notoSense.style.fontFamily,
                   fontWeight: "700",
                 }}
-                size="large"
+                size={MediumScreen || smallScreen ? "small" : "large"}
                 variant="contained"
               >
                 Need More Help
@@ -448,7 +449,7 @@ const Home = () => {
                   fontFamily: notoSense.style.fontFamily,
                   fontWeight: "700",
                 }}
-                size="large"
+                size={MediumScreen || smallScreen ? "small" : "large"}
                 variant="contained"
                 startIcon={<ArrowCircleLeftIcon />}
               >
@@ -463,7 +464,7 @@ const Home = () => {
                   fontFamily: notoSense.style.fontFamily,
                   fontWeight: "700",
                 }}
-                size="large"
+                size={MediumScreen || smallScreen ? "small" : "large"}
                 variant="contained"
                 endIcon={<ArrowCircleRightIcon />}
               >
