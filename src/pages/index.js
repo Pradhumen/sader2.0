@@ -94,7 +94,8 @@ const Home = () => {
                 container
                 spacing={2} // Adds space between child Grid items
                 justifyContent="space-between"
-                sx={{ padding: "30px" }}
+                alignItems="center"
+                sx={{ padding: "2px",paddingBottom:"10px",paddingLeft:"10px",paddingRight:"10px" }}
               >
                 <Grid
                   item
@@ -190,7 +191,7 @@ const Home = () => {
                   sx={{
                     fontFamily: dmserif.style.fontFamily,
                     my: "20px",
-                    color: "gray",
+                    color: "#686058",
                   }}
                   gutterBottom
                   variant="h6"
@@ -254,7 +255,9 @@ const Home = () => {
                       >
                         <Typography
                           sx={{
-                            fontFamily: dmserif.style.fontFamily,
+                            fontFamily: notoSense.style.fontFamily,
+                            fontWeight:500,
+                            color:"#686058",
                             textAlign: "center",
                             fontSize: MediumScreen ? "x-small" : "small",
                             textWrap: "nowrap",
@@ -313,7 +316,9 @@ const Home = () => {
                       >
                         <Typography
                           sx={{
-                            fontFamily: dmserif.style.fontFamily,
+                            fontFamily: notoSense.style.fontFamily,
+                            fontWeight:500,
+                            color:"#686058",
                             textAlign: "center",
                             fontSize: MediumScreen ? "x-small" : "small",
                             textWrap: "nowrap",
@@ -371,7 +376,9 @@ const Home = () => {
                       >
                         <Typography
                           sx={{
-                            fontFamily: dmserif.style.fontFamily,
+                            fontFamily: notoSense.style.fontFamily,
+                            fontWeight:500,
+                            color:"#686058",
                             textAlign: "center",
                             fontSize: MediumScreen ? "x-small" : "small",
                             textWrap: "nowrap",
@@ -430,7 +437,9 @@ const Home = () => {
                       >
                         <Typography
                           sx={{
-                            fontFamily: dmserif.style.fontFamily,
+                            fontFamily: notoSense.style.fontFamily,
+                            fontWeight:500,
+                            color:"#686058",
                             textAlign: "center",
                             fontSize: MediumScreen ? "x-small" : "small",
                             textWrap: "nowrap",
@@ -461,7 +470,8 @@ const Home = () => {
                 container
                 spacing={2} // Adds space between child Grid items
                 justifyContent="space-between"
-                sx={{ padding: "30px" }}
+                alignItems="center"
+                sx={{ paddingBottom: "10px",paddingRight:"10px",paddingLeft:"10px" }}
               >
                 <Grid
                   item
