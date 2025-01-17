@@ -9,9 +9,9 @@ import { DM_Serif_Text } from "next/font/google";
 
 import { Noto_Sans } from "next/font/google";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import "swiper/css";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 
 import {
   Box,
@@ -20,6 +20,7 @@ import {
   CardActions,
   CardContent,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { Inter } from "next/font/google";
 
@@ -30,6 +31,8 @@ const notoSense = Noto_Sans({ weight: "400" });
 const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const selectCategoryRef = useRef();
+
+  const MediumScreen = useMediaQuery("(max-width: 768px)");
 
   const handleChange = (index) => {
     setSelectedCategory(index);
@@ -59,7 +62,7 @@ const Home = () => {
         }}
       >
         <img
-          style={{ maxHeight: "100%", width: "100%", objectFit: "cover" }}
+          style={{ maxHeight: "100%", maxWidth: "100%", objectFit: "cover" }}
           src="https://images.unsplash.com/photo-1598519575657-5f8d16c3a20f?q=80&w=1892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt=""
         />
@@ -117,8 +120,17 @@ const Home = () => {
         </Box>
 
         {/* Middle Content */}
-        <Box>
-          <Typography
+       
+        <Box
+          sx={{
+            height: "calc(100vh - 300px)",
+            userSelect: "none",
+            marginTop: "100px",
+            padding: "1.5rem",
+            overflow:"auto"
+          }}
+        >
+            <Typography
             variant="h1"
             component="h2"
             sx={{
@@ -126,23 +138,15 @@ const Home = () => {
               color: "black",
               fontSize: "1.3rem",
               lineHeight: "1.5rem",
-              margin: "0",
+              marginBottom: "10px",
               fontWeight: "300",
-              padding: ".5rem .5rem 0",
+              // padding: ".5rem .5rem 0",
               fontFamily: "Klim-Semibold, Georgia, Times New Roman, serif",
             }}
           >
             Select Modal
           </Typography>
-        </Box>
-        <Box
-          sx={{
-            userSelect: "none",
-            marginTop: "100px",
-            padding: "1.5rem",
-           
-          }}
-        >
+
           <Box>
             <Typography
               sx={{ fontFamily: dmserif.style.fontFamily }}
@@ -176,24 +180,22 @@ const Home = () => {
             </Typography>
           </Box>
 
-          <Grid container spacing={1} >
-            <Swiper
-              modules={[Navigation]}
-              navigation
-              spaceBetween={50}
-              slidesPerView={3}
-              onSlideChange={() => console.log("slide change")}
-              onSwiper={(swiper) => console.log(swiper)}
-             
-            >
-              <SwiperSlide>
-              <Grid item xs={4} key="1">
+          <Grid
+            container
+            spacing={2}
+            sx={{ overflow: "auto", height: "250px", width: "100%",alignItems:"center",justifyContent:"center" }}
+          >
+
+           
+            <Grid item xs={6}  key="1">
               <Card
                 ref={selectCategoryRef}
                 onClick={() => handleChange(1)}
                 sx={{
-                  width: "140px",
-                  height: "140px",
+                  width: "130px",
+                  height: "130px",
+                  marginTop: "5px",
+                  marginLeft:"10px",
                   boxShadow:
                     selectedCategory === 1
                       ? "0 0 0 3px #ef233c"
@@ -243,15 +245,15 @@ const Home = () => {
                 </CardContent>
               </Card>
             </Grid>
-              </SwiperSlide>
-              <SwiperSlide>
-              <Grid item xs={4} key="2">
+
+            <Grid item xs={4}   key="2">
               <Card
                 ref={selectCategoryRef}
                 onClick={() => handleChange(2)}
                 sx={{
-                  width: "140px",
-                  height: "140px",
+                  width: "130px",
+                  height: "130px",
+                  marginLeft:"10px",
                   boxShadow:
                     selectedCategory === 2
                       ? "0 0 0 3px #ef233c"
@@ -301,15 +303,15 @@ const Home = () => {
                 </CardContent>
               </Card>
             </Grid>
-              </SwiperSlide>
-              <SwiperSlide>
-              <Grid item xs={4} key="3">
+
+            <Grid item xs={4} key="3">
               <Card
                 ref={selectCategoryRef}
                 onClick={() => handleChange(3)}
                 sx={{
-                  width: "140px",
-                  height: "140px",
+                  width: "130px",
+                  height: "130px",
+                  marginLeft:"10px",
                   boxShadow:
                     selectedCategory === 3
                       ? "0 0 0 3px #ef233c"
@@ -358,14 +360,16 @@ const Home = () => {
                 </CardContent>
               </Card>
             </Grid>
-              </SwiperSlide>
-              <SwiperSlide><Grid item xs={4} key="4">
+
+            <Grid item xs={4}  key="4">
               <Card
                 ref={selectCategoryRef}
                 onClick={() => handleChange(4)}
                 sx={{
-                  width: "140px",
-                  height: "140px",
+                  width: "130px",
+                  height: "130px",
+                  marginLeft:"10px",
+                  marginBottom:"5px",
                   boxShadow:
                     selectedCategory === 4
                       ? "0 0 0 3px #ef233c"
@@ -414,13 +418,7 @@ const Home = () => {
                   </CardActions>
                 </CardContent>
               </Card>
-            </Grid></SwiperSlide>
-              ...
-            </Swiper>
-
-          
-            
-            
+            </Grid>
           </Grid>
         </Box>
 
@@ -441,7 +439,6 @@ const Home = () => {
             container
             justifyContent="space-between"
             sx={{ paddingRight: "40px" }}
-
           >
             <Grid item xs={6}>
               <Button
